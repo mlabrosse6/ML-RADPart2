@@ -37,11 +37,19 @@ public with sharing class WeekTwoHomework{
         
    } 
 
+   public static void lessonC {
+        //A method that queries for Opportunity records that returns results in a map format.
+        Map<Id,Opportunity> oppMapC = new Map<Id,Opportunity>([SELECT ID, Name, Amount,stageName FROM Opportunity limit 2]);
+        system.debug('Map is >>> ' + oppMapC);
+
+   }
+
+
+   public static void lessonD {
+        //An aggregate results query that returns an integer equal to the total number of open opportunities in your org.
+        Integer numOpenOpps = [select count() from Opportunity where isClosed = false];
+        system.debug('Number of open opps is >>> ' + numOpenOpps);
+
+   }
+
 }
-
-
-
-
-//A method that queries for Opportunity records that returns results in a map format.
-
-//An aggregate results query that returns an integer equal to the total number of open opportunities in your org.
